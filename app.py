@@ -72,6 +72,7 @@ def predictions(df_future, selected_features, model, df_results):
 # Streamlit User Interface
 st.title("BTTS Prediction Dashboard")
 
+col1, col2, col3 = st.columns(3)
 
 # Visualization of BTTS distribution
 st.sidebar.header("Visualizations")
@@ -85,6 +86,8 @@ if st.sidebar.checkbox("Show BTTS Distribution Plot"):
     plt.xlabel('Round Number')
     plt.ylabel('BTTS Rate')
     plt.ylim(0, 1)
-    st.pyplot(plt)
+    with col1:
+        st.pyplot(plt)
 
 number = st.slider("Pick a number", 0, 100)
+st.balloons()
